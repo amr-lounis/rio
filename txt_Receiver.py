@@ -1,10 +1,9 @@
 import socket
-import cv2
 import base64
-import numpy as np
 
 BUFF_SIZE = 65536
-serverAddressPort = ("127.0.0.1", 9999)
+# serverAddressPort = ("127.0.0.1", 9999)
+serverAddressPort = ("192.168.125.5", 9999)
 
 class UDP_Server:
     def __init__(self):
@@ -24,7 +23,7 @@ class UDP_Server:
 
                 # Decode the message
                 buffer = base64.b64decode(msg)
-                print(buffer)
+                print(buffer.decode())
 
             except Exception as e:
                 print("Error receiving message:", e)

@@ -1,11 +1,8 @@
-import time
-import cv2, imutils, socket
-import numpy as np
+import socket
 import base64
 
-BUFF_SIZE = 65536
-serverAddressPort   = ("127.0.0.1", 9999)
-# serverAddressPort   = ("192.168.125.5", 9999)
+# serverAddressPort   = ("127.0.0.1", 9999)
+serverAddressPort   = ("192.168.125.255", 9999)
 
 class UDP_Client:
     def __init__(self):
@@ -16,8 +13,8 @@ class UDP_Client:
             print("error init UDP")
 
     def send(self,text):
+        message = base64.b64encode(str.encode(text))
         try:
-            message = base64.b64encode(str.encode(text))
             self.UDPClientSocket.sendto(message,serverAddressPort)
         except:
             print("error send")
@@ -25,4 +22,4 @@ class UDP_Client:
 udp = UDP_Client()
 
 
-udp.send("string ")
+udp.send("hello world . ")

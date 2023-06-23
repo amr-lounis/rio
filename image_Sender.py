@@ -3,9 +3,8 @@ import cv2, imutils, socket
 import numpy as np
 import base64
 
-BUFF_SIZE = 65536
 # serverAddressPort   = ("127.0.0.1", 9999)
-serverAddressPort   = ("192.168.125.5", 9999)
+serverAddressPort   = ("192.168.125.20", 9999)
 
 class UDP_Client:
     def __init__(self):
